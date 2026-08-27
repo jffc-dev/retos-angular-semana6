@@ -1,0 +1,50 @@
+<section class="mx-auto max-w-2xl p-6">
+  <a routerLink="/" class="text-sm text-indigo-600 hover:underline">← Volver al inicio</a>
+  <h2 class="mt-2 text-xl font-semibold text-slate-900">Checkout completo</h2>
+  <p class="mt-1 text-sm text-slate-600">
+    Todo lo anterior junto: FormBuilder, validators, errores por touched, validación cruzada
+    (confirmar contraseña), valueChanges (habilita "empresa" según el tipo de cliente) y
+    markAllAsTouched() al enviar.
+  </p>
+
+  <form class="mt-6 flex flex-col gap-4 rounded-xl border border-slate-200 p-4 shadow-sm">
+    <div>
+      <input class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Nombre" />
+    </div>
+
+    <div>
+      <input class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Email" />
+    </div>
+
+    <div>
+      <label class="text-xs font-medium text-slate-500">Tipo de cliente</label>
+      <select class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm">
+        <option value="personal">Personal</option>
+        <option value="empresa">Empresa</option>
+      </select>
+    </div>
+
+    <div>
+      <input
+        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm disabled:bg-slate-100 disabled:text-slate-400"
+        placeholder="Nombre de la empresa"
+      />
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div>
+        <input class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" type="password" placeholder="Contraseña" />
+      </div>
+      <div>
+        <input class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" type="password" placeholder="Confirmar contraseña" />
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+    >
+      Confirmar pedido
+    </button>
+  </form>
+</section>

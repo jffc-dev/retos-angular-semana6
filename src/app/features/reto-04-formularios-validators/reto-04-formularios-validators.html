@@ -1,0 +1,33 @@
+<section class="mx-auto max-w-2xl p-6">
+  <a routerLink="/" class="text-sm text-indigo-600 hover:underline">← Volver al inicio</a>
+  <h2 class="mt-2 text-xl font-semibold text-slate-900">Validators síncronos</h2>
+  <p class="mt-1 text-sm text-slate-600">
+    Cuatro validators built-in de Angular, cada uno en su propio campo para verlos en vivo.
+  </p>
+
+  <form class="mt-6 flex flex-col gap-4 rounded-xl border border-slate-200 p-4 shadow-sm">
+    <div>
+      <label class="text-xs font-medium text-slate-500">Validators.required</label>
+      <input class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Nombre" />
+    </div>
+
+    <div>
+      <label class="text-xs font-medium text-slate-500">Validators.required + Validators.email</label>
+      <input class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Email" />
+    </div>
+
+    <div>
+      <label class="text-xs font-medium text-slate-500">Validators.minLength(4) + Validators.maxLength(12)</label>
+      <input class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Usuario (4 a 12 caracteres)" />
+    </div>
+
+    <div>
+      <label class="text-xs font-medium text-slate-500">Validators.pattern(/^\d&#123;16&#125;$/)</label>
+      <input class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Número de tarjeta (16 dígitos)" />
+    </div>
+  </form>
+
+  <p class="mt-4 text-xs text-slate-500">
+    Estos cuatro se ejecutan de forma inmediata. Los validators asíncronos (contra una API) no están cubiertos aquí.
+  </p>
+</section>

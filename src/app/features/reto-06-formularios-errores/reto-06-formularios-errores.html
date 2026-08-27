@@ -1,0 +1,23 @@
+<section class="mx-auto max-w-xl p-6">
+  <a routerLink="/" class="text-sm text-indigo-600 hover:underline">← Volver al inicio</a>
+  <h2 class="mt-2 text-xl font-semibold text-slate-900">Mensajes de error específicos</h2>
+  <p class="mt-1 text-sm text-slate-600">
+    No es lo mismo "obligatorio" que "formato inválido": <code>hasError('required')</code> permite
+    distinguir cuál validación falló.
+  </p>
+
+  <form class="mt-6 flex flex-col gap-4 rounded-xl border border-slate-200 p-4 shadow-sm">
+    <div>
+      <input class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Email" />
+    </div>
+
+    <div>
+      <input class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" type="password" placeholder="Contraseña" />
+    </div>
+  </form>
+
+  <div class="mt-4 rounded-lg bg-slate-50 p-3 text-xs text-slate-600">
+    <p><code>get email() &#123; return this.registroForm.get('email')! &#125;</code></p>
+    <p class="mt-1">Con el getter el template queda como <code>email.hasError('required')</code> en vez de repetir <code>registroForm.get('email')</code> en cada línea.</p>
+  </div>
+</section>
