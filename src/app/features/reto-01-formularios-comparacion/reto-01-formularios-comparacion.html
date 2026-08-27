@@ -10,33 +10,49 @@
     <div class="rounded-xl border border-slate-200 p-4 shadow-sm">
       <h3 class="font-medium text-slate-800">Template-driven <span class="text-xs text-slate-400">(ngModel)</span></h3>
 
-      <form class="mt-3 flex flex-col gap-2">
+      <form class="mt-3 flex flex-col gap-2" #templateForm="ngForm">
         <input
           class="rounded-lg border border-slate-300 px-3 py-2 text-sm"
           name="nombre"
           placeholder="Nombre"
+          [ngModel]="nombre()"
+          (ngModelChange)="nombre.set($event)"
+          required
+          minlength="10"
         />
         <input
           class="rounded-lg border border-slate-300 px-3 py-2 text-sm"
           name="email"
           placeholder="Email"
+          [ngModel]="email()"
+          (ngModelChange)="email.set($event)"
+          required
+          email
         />
       </form>
+
+      <p>{{ {nombre: nombre(), email: email()} | json}}</p>
+      <p class="mt-2">{{ templateForm.valid }}</p>
     </div>
 
     <div class="rounded-xl border border-slate-200 p-4 shadow-sm">
       <h3 class="font-medium text-slate-800">Reactive Forms <span class="text-xs text-slate-400">(FormGroup)</span></h3>
 
-      <form class="mt-3 flex flex-col gap-2">
+      <form class="mt-3 flex flex-col gap-2" [formGroup]="miFormulario">
         <input
           class="rounded-lg border border-slate-300 px-3 py-2 text-sm"
           placeholder="Nombre"
+          formControlName="nombre"
         />
         <input
           class="rounded-lg border border-slate-300 px-3 py-2 text-sm"
           placeholder="Email"
+          formControlName="email"
         />
       </form>
+
+      <p>{{ miFormulario.value | json}}</p>
+      <p class="mt-2">{{ miFormulario.valid }}</p>
     </div>
   </div>
 </section>
