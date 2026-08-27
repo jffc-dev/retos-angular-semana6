@@ -6,20 +6,22 @@
     <code>new FormGroup()</code>. Es más código, pero deja ver qué hace FormBuilder por debajo.
   </p>
 
-  <form class="mt-6 flex flex-col gap-3 rounded-xl border border-slate-200 p-4 shadow-sm">
-    <input class="rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Nombre" />
-    <input class="rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Email" />
+  <form class="mt-6 flex flex-col gap-3 rounded-xl border border-slate-200 p-4 shadow-sm" [formGroup]="miFormulario">
+    <input class="rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Nombre" formControlName="nombre" />
+    <input class="rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Email" formControlName="email" />
 
     <div class="flex gap-2">
       <button
         type="button"
         class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
+        (click)="patchValue()"
       >
         checkoutForm.patchValue(...)
       </button>
       <button
         type="button"
         class="rounded-lg border border-slate-300 px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+        (click)="reset()"
       >
         checkoutForm.reset()
       </button>
@@ -29,7 +31,7 @@
   <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
     <div class="rounded-lg bg-slate-50 p-3 text-xs">
       <p class="mb-1 font-medium text-slate-600">checkoutForm.value</p>
-      <pre class="overflow-x-auto"></pre>
+      <pre class="overflow-x-auto">{{miFormulario.value | json}}</pre>
     </div>
     <div class="rounded-lg bg-slate-50 p-3 text-xs">
       <p class="mb-1 font-medium text-slate-600">Último valor recibido por valueChanges</p>
