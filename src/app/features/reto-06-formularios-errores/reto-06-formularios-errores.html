@@ -6,15 +6,28 @@
     distinguir cuál validación falló.
   </p>
 
-  <form class="mt-6 flex flex-col gap-4 rounded-xl border border-slate-200 p-4 shadow-sm">
+  <form class="mt-6 flex flex-col gap-4 rounded-xl border border-slate-200 p-4 shadow-sm" [formGroup]="miFormulario">
     <div>
-      <input class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Email" />
+      <input class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Email" formControlName="email"/>
+      <p>error required: {{email.hasError('required')}}</p>
+      <p>error email: {{email.hasError('email')}}</p>
+      @if(email.hasError('required') && email.dirty === true){
+        <p class="mt-1 text-red-500">El correo es obligatorio</p>
+      }@else if(email.hasError('email') && email.dirty === true){
+        <p class="mt-1 text-red-500">El correo es invalido</p>
+      }
     </div>
 
     <div>
-      <input class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" type="password" placeholder="Contraseña" />
+      <input class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Contraseña" formControlName="contrasenia"/>
+      <p>{{contrasenia.hasError('required')}}</p>
+      @if(contrasenia.hasError('minlength') && contrasenia.dirty === true){
+        <p class="mt-1 text-red-500">La contrasenia debe tener 8 caracteres como minimo</p>
+      }
     </div>
   </form>
+
+  <p>{{miFormulario.value | json}}</p>
 
   <div class="mt-4 rounded-lg bg-slate-50 p-3 text-xs text-slate-600">
     <p><code>get email() &#123; return this.registroForm.get('email')! &#125;</code></p>
