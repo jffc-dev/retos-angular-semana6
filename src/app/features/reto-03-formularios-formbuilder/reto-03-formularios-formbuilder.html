@@ -18,7 +18,7 @@
 
     <div formArrayName="telefonos" class="rounded-lg bg-slate-50 p-3">
       <p class="mb-2 text-xs font-medium text-slate-500">telefonos (FormArray)</p>
-      @for(telefono of telefonos.controls; track $index){
+      @for(telefono of telefonos.controls; track telefono){
         <div class="mb-2 flex gap-2">
           <input
             class="flex-1 rounded-lg border border-slate-300 px-3 py-2 text-sm"

@@ -34,8 +34,6 @@ export class Reto03FormulariosFormbuilder {
   }
 
   quitarTelefono(index: number){
-
     (this.miFormulario.get('telefonos') as FormArray).removeAt(index)
-    console.log(index)
   }
 }
