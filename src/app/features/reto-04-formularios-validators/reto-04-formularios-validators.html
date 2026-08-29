@@ -5,29 +5,35 @@
     Cuatro validators built-in de Angular, cada uno en su propio campo para verlos en vivo.
   </p>
 
-  <form class="mt-6 flex flex-col gap-4 rounded-xl border border-slate-200 p-4 shadow-sm">
+  <form class="mt-6 flex flex-col gap-4 rounded-xl border border-slate-200 p-4 shadow-sm" [formGroup]="miFormulario">
     <div>
       <label class="text-xs font-medium text-slate-500">Validators.required</label>
-      <input class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Nombre" />
+      <input class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Nombre" formControlName="nombre" />
+      <p>{{miFormulario.get('email')?.valid}}</p>
     </div>
 
     <div>
       <label class="text-xs font-medium text-slate-500">Validators.required + Validators.email</label>
-      <input class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Email" />
+      <input class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Email" formControlName="email"/>
+      <p>{{miFormulario.get('nombre')?.valid}}</p>
     </div>
 
     <div>
       <label class="text-xs font-medium text-slate-500">Validators.minLength(4) + Validators.maxLength(12)</label>
-      <input class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Usuario (4 a 12 caracteres)" />
+      <input class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Usuario (4 a 12 caracteres)" formControlName="usuario"/>
+      <p>{{miFormulario.get('usuario')?.valid}}</p>
     </div>
 
     <div>
       <label class="text-xs font-medium text-slate-500">Validators.pattern(/^\d&#123;16&#125;$/)</label>
-      <input class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Número de tarjeta (16 dígitos)" />
+      <input class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Número de tarjeta (16 dígitos)" formControlName="numeroTarjeta"/>
+      <p>{{miFormulario.get('numeroTarjeta')?.valid}}</p>
     </div>
   </form>
 
   <p class="mt-4 text-xs text-slate-500">
     Estos cuatro se ejecutan de forma inmediata. Los validators asíncronos (contra una API) no están cubiertos aquí.
   </p>
+
+  <p>{{miFormulario.value | json}}</p>
 </section>
